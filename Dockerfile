@@ -3,7 +3,7 @@ RUN yum -y install centos-release-scl-rh centos-release-scl
 RUN yum install -y rh-ruby27-ruby-devel
 RUN echo /opt/rh/rh-ruby27/root/usr/lib64/ > /etc/ld.so.conf.d/ruby.conf
 RUN ldconfig
-RUN yum install -y make gcc "gcc-c++"
+RUN yum install -y make gcc "gcc-c++" git
 RUN adduser jekyll
 RUN PATH=/opt/rh/rh-ruby27/root/usr/bin:/opt/rh/rh-ruby27/root/usr/local/bin:$PATH && gem install jekyll bundler && cd /home/jekyll && git clone $GIT_URL src && cd src && bundle install
 RUN echo 'export PATH=/opt/rh/rh-ruby27/root/usr/bin:/opt/rh/rh-ruby27/root/usr/local/bin:$PATH' >> /home/jekyll/.bashrc
