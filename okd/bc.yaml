@@ -1,0 +1,44 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: jekyll
+  name: jekyll
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: jekyll:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: master
+      uri: https://github.com/corpbob/quantumcomputing.ph.git
+    sourceSecret:
+      name: gogs-secret
+    type: Git
+  strategy:
+    dockerStrategy:
+      env:
+      - name: GIT_SSL_NO_VERIFY
+        value: "true"
+      dockerfilePath: Dockerfile
+      from:
+        kind: ImageStreamTag
+        name: centos:centos7
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+  - generic:
+      secret: ad3a2443c51e869a
+    type: Generic
+  - github:
+      secret: aeccef767ea75a48
+    type: GitHub
+  - imageChange:
+    type: ImageChange
+  - type: ConfigChange

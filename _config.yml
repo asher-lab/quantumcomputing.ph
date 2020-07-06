@@ -1,0 +1,41 @@
+# Site settings
+title:          Quantum Computing Philippines
+description:    "All About Quantum Computing"
+baseurl:        ""
+url:            "https://quantumcomputing.ph"
+
+# Google Analytics
+#google_analytics: UA—XXXXXXXX-X
+
+# Author
+author:
+  name:         Quantum Computing Philipines
+  url:          https://quantumcomputing.ph
+  email:        me@example.com
+
+# Build settings
+markdown:       kramdown
+include:
+  - _pages
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
+
+# Gems
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+  # - jemoji #Uncomment this to allow emoji in your post
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
+
+# Excludes
+exclude: [ Gemfile, Gemfile.lock, tale.gemspec ]
+
+# Disqus (Set to your disqus id)
+#disqus:         jekyll-tale
