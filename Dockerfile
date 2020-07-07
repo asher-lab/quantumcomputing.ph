@@ -12,4 +12,4 @@ USER jekyll
 WORKDIR /home/jekyll
 EXPOSE 4000
 #ENTRYPOINT cd /home/jekyll/src && PATH=/opt/rh/rh-ruby27/root/usr/bin:/opt/rh/rh-ruby27/root/usr/local/bin:$PATH bundle exec jekyll serve --host=0.0.0.0
-ENTRYPOINT PATH=/opt/rh/rh-ruby27/root/usr/bin:/opt/rh/rh-ruby27/root/usr/local/bin:$PATH && cd /home/jekyll && git clone https://$GIT_USERNAME:$GIT_PASSWORD@$GIT_URL src && cd src && bundle install --path vendor/bundle && bundle exec jekyll serve
+ENTRYPOINT PATH=/opt/rh/rh-ruby27/root/usr/bin:/opt/rh/rh-ruby27/root/usr/local/bin:$PATH && cd /home/jekyll && git clone https://$GIT_USERNAME:$GIT_PASSWORD@$GIT_URL src && cd src && bundle install --path vendor/bundle && bundle exec jekyll serve --host=0.0.0.0
